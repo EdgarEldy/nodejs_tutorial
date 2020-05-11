@@ -5,3 +5,7 @@
 public/images
 public/javascripts
 public/stylesheets/
+
+# node_modules
+
+/node_modules
