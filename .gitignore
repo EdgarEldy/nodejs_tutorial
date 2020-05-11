@@ -1,1 +1,7 @@
+# IDE specific files #
 .idea/
+
+# Express specific assets #
+public/images
+public/javascripts
+public/stylesheets/
