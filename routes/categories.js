@@ -5,5 +5,8 @@ router.get('/categories', function (req, res) {
    res.render('categories/index');
 });
 
+router.get('/categories/add', function (req, res) {
+   res.render('categories/add');
+});
 
 module.exports = router;
