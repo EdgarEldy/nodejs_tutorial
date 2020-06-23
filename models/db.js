@@ -1,12 +1,15 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/nodejs_db', {
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useUnifiedTopology: true
     },
-    (err) => {
+    function(err){
         if (!err) {
             console.log('Mongodb connection succeed.')
         } else {
             console.log('Error in DB connection:' + err)
         }
     });
+
+require('./Category');
