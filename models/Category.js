@@ -1,7 +1,9 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-let categoriesSchema = new mongoose.Schema({
-    'cat_name': String
+var categorySchema = new mongoose.Schema({
+    'cat_name': {
+        type: String
+    }
 });
 
-mongoose.model('categories', categoriesSchema);
+mongoose.model('Category', categorySchema);
