@@ -9,6 +9,8 @@ var exphbs = require('express-handlebars');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+require('./models/db');
+
 // Categories
 var categoriesRouter = require('./routes/categories');
 
