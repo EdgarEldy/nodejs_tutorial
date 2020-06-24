@@ -37,6 +37,8 @@ app.use('/users', usersRouter);
 // Categories
 app.get('/categories',categoriesRouter);
 app.get('/categories/add', categoriesRouter);
+app.post('categories', categoriesRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
