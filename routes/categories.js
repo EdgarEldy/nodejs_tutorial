@@ -4,7 +4,13 @@ var mongoose = require('mongoose');
 var Category = mongoose.model('Category');
 
 router.get('/categories', function (req, res) {
-    res.render('categories/index');
+    Category.find(function (err, docs) {
+        if (!err){
+            res.render('categories/index',{
+                categories: docs
+            });
+        }
+    });
 });
 
 router.get('/categories/add', function (req, res) {
