@@ -2,8 +2,9 @@ var mongoose = require('mongoose');
 
 var categorySchema = new mongoose.Schema({
     'cat_name': {
-        type: String
+        type: String,
+        required: true
     }
 });
 
-mongoose.model('Category', categorySchema);
+module.exports = mongoose.model('Category', categorySchema, 'categories');
