@@ -1,22 +1,24 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
-var Category = mongoose.model('Category');
+var Category = require('../models/Category');
 
+// Retrieve product categories
 router.get('/categories', function (req, res) {
-    Category.find(function (err, docs) {
-        if (!err){
-            res.render('categories/index',{
-                categories: docs
-            });
+    Category.find({}, function (err, docs) {
+        if (!err) {
+            res.render('categories/index', {categories: docs.map(category => category.toJSON())});
+        } else {
+            res.json(err);
         }
     });
 });
 
+// Get the product category form
 router.get('/categories/add', function (req, res) {
     res.render('categories/add');
 });
 
+//
 router.post('/categories', function (req, res) {
     add(req, res);
 });
