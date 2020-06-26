@@ -36,6 +36,29 @@ function add(req, res) {
     });
 }
 
+router.post('/categories/update', function (req, res) {
+    edit(req, res);
+});
+
+function edit(req, res) {
+    Category.findOneAndUpdate(
+        {
+            _id: req.body._id
+        },
+        req.body,
+        {
+            new: true
+        },
+        function (err, doc) {
+            if (!err){
+                res.redirect('/categories');
+            }
+            else{
+                res.render('categories/edit');
+            }
+        }
+    );
+}
 
 // Get the product category form with data to update
 router.get('/categories/edit/:id', function (req, res) {
