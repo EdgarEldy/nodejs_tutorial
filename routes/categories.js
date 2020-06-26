@@ -36,4 +36,19 @@ function add(req, res) {
     });
 }
 
+
+// Get the product category form with data to update
+router.get('/categories/edit/:id', function (req, res) {
+    Category.findById(req.params.id, function (err, doc) {
+        if (!err) {
+            res.render('categories/edit', {
+                category: doc.toJSON()
+            });
+        }
+        else {
+            res.json(err);
+        }
+    })
+});
+
 module.exports = router;
