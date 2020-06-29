@@ -51,7 +51,7 @@ app.get('/categories', categoriesRouter);
 app.get('/categories/add', categoriesRouter);
 app.post('/categories', categoriesRouter);
 app.get('/categories/edit/:id', categoriesRouter);
-app.post('/categories/update', categoriesRouter);
+app.post('/categories/edit/:id', categoriesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
