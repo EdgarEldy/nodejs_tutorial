@@ -17,4 +17,10 @@ router.get('/customers', function (req, res) {
     });
 });
 
+// Get the customers/add view
+
+router.get('/customers/add', function (req, res) {
+   res.render('customers/add');
+});
+
 module.exports = router;
