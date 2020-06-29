@@ -62,5 +62,20 @@ router.post('/categories/edit/:id', function (req, res) {
     });
 });
 
+// Delete a product category
+router.post('/categories/delete/:id', function (req, res) {
+   var query = {
+       _id: req.params.id
+   };
+
+   Category.remove(query, function (err) {
+       if (!err){
+           res.redirect('/categories');
+       }
+       else{
+           console.log('Error during record delete :' + err);
+       }
+   });
+});
 
 module.exports = router;
