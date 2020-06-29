@@ -18,15 +18,11 @@ router.get('/categories/add', function (req, res) {
     res.render('categories/add');
 });
 
-//
+// Adding a new product category
 router.post('/categories', function (req, res) {
-    add(req, res);
-});
-
-//Insert a new product category
-function add(req, res) {
     var category = new Category();
     category.cat_name = req.body.cat_name;
+
     category.save(function (err, doc) {
         if (!err) {
             res.redirect('categories');
@@ -34,31 +30,7 @@ function add(req, res) {
             console.log('Error during record insertion :' + err);
         }
     });
-}
-
-router.post('/categories/update', function (req, res) {
-    edit(req, res);
 });
-
-function edit(req, res) {
-    Category.findOneAndUpdate(
-        {
-            _id: req.body._id
-        },
-        req.body,
-        {
-            new: true
-        },
-        function (err, doc) {
-            if (!err){
-                res.redirect('/categories');
-            }
-            else{
-                res.render('categories/edit');
-            }
-        }
-    );
-}
 
 // Get the product category form with data to update
 router.get('/categories/edit/:id', function (req, res) {
@@ -67,11 +39,28 @@ router.get('/categories/edit/:id', function (req, res) {
             res.render('categories/edit', {
                 category: doc.toJSON()
             });
-        }
-        else {
+        } else {
             res.json(err);
         }
     })
 });
+
+// Update a document by id
+router.post('/categories/edit/:id', function (req, res) {
+    var category = {};
+    category.cat_name = req.body.cat_name;
+    var query = {
+        _id: req.params.id
+    };
+
+    Category.updateOne(query, category, function (err) {
+        if (!err) {
+            res.redirect('/categories');
+        } else {
+            console.log('Error during record update :' + err);
+        }
+    });
+});
+
 
 module.exports = router;
