@@ -42,4 +42,16 @@ router.post('/customers', function (req, res) {
     });
 });
 
+router.get('/customers/edit/:id', function (req, res) {
+   Customer.findById(req.params.id, function (err, doc) {
+       if (!err){
+           res.render('customers/edit',{
+               customer: doc.toJSON()
+           });
+       } else{
+           res.json(err);
+       }
+   })
+});
+
 module.exports = router;
