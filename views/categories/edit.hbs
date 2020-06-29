@@ -3,12 +3,10 @@
         <div class="panel-heading">Update a product category</div>
         <div class="panel-body">
             <div class="col-md-6">
-                <form role="form" action="/categories/update" method="post"
-                      enctype="multipart/form-data">
-                    <input type="hidden" name="_id" value="{{category._id}}">
+                <form role="form" action="/categories/edit/{{category._id}}" method="POST">
                     <div class="form-group">
                         <label>Product category</label>
-                        <input type="text" name="product_name" class="form-control"
+                        <input type="text" name="cat_name" class="form-control"
                                placeholder="" value="{{category.cat_name}}">
                     </div>
                     <button type="submit" id="submit" class="btn btn-primary">Save</button>
@@ -18,4 +16,3 @@
         </div>
     </div>
 </div><!-- /.col-->
-<script>
