@@ -54,4 +54,26 @@ router.get('/customers/edit/:id', function (req, res) {
    })
 });
 
+// Update a customer
+router.post('/customers/edit/:id', function (req, res) {
+   var customer = {};
+    customer.first_name = req.body.first_name;
+    customer.last_name = req.body.last_name;
+    customer.tel = req.body.tel;
+    customer.email = req.body.email;
+    customer.address = req.body.address;
+
+    var query = {
+      _id: req.params.id
+    };
+
+    Customer.updateOne(query, customer, function (err) {
+       if (!err){
+           return res.redirect('/customers');
+       }  else{
+           console.log('Error during record update:' + err);
+       }
+    });
+});
+
 module.exports = router;
