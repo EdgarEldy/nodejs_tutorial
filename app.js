@@ -59,6 +59,7 @@ app.post('/categories/edit/:id', categoriesRouter);
 // Customers
 app.get('/customers', customersRouter);
 app.get('/customers/add', customersRouter);
+app.post('/customers', customersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
