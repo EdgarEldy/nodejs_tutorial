@@ -11,7 +11,7 @@ router.get('/customers', function (req, res) {
                 customers: docs.map(customer => customer.toJSON()
                 )
             });
-        }else{
+        } else {
             res.json(err);
         }
     });
@@ -20,7 +20,26 @@ router.get('/customers', function (req, res) {
 // Get the customers/add view
 
 router.get('/customers/add', function (req, res) {
-   res.render('customers/add');
+    res.render('customers/add');
+});
+
+// Inserting a new customer
+
+router.post('/customers', function (req, res) {
+    var customer = new Customer();
+    customer.first_name = req.body.first_name;
+    customer.last_name = req.body.last_name;
+    customer.tel = req.body.tel;
+    customer.email = req.body.email;
+    customer.address = req.body.address;
+
+    customer.save(function (err) {
+        if (!err) {
+            res.redirect('customers');
+        } else {
+            console.log('Error during record insertion :' + err);
+        }
+    });
 });
 
 module.exports = router;
