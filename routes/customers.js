@@ -76,4 +76,19 @@ router.post('/customers/edit/:id', function (req, res) {
     });
 });
 
+// Delete a customer
+router.post('/customers/delete/:id', function (req, res) {
+   var query = {
+     _id: req.params.id
+   };
+
+   Customer.remove(query, function (err) {
+      if (!err){
+          res.redirect('/customers');
+      }  else{
+          console.log('Error during delete:' + err);
+      }
+   });
+});
+
 module.exports = router;
