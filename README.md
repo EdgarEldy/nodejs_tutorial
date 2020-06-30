@@ -1,2 +1,32 @@
-# nodejs_tutorial
-A Nodejs tutorial using Expressjs framework, Emberjs for templating and MongoDB.
+# ![Node/Express/MongoDB/Handlebars Example App](project-logo.png)
+
+> ### This is a tutorial based on the Node.js runtime environment using Express.js framework, MongoDB with Mongoose orm and express-handlebars view engine.
+
+# Getting started
+
+To get the Node server running locally:
+
+- Clone this repo
+- Run `npm install` to install all required dependencies
+- Download and Install MongoDB Community Edition ([Download here](https://www.mongodb.com/try/download/community)) and run it by executing `mongod`
+- Download and Install MongoDB Compass Community Edition ([Download here](https://www.mongodb.com/try/download/compass)) and run it
+- Run `npm run start` to start the local server
+
+# Code Overview
+
+## Dependencies
+
+- [Express.js](https://github.com/expressjs/express) - The server for handling and routing HTTP request
+- [mongoose](https://github.com/Automattic/mongoose) - For modeling and mapping MongoDB data to javascript 
+- [express-handlebars](https://github.com/handlebars-lang/handlebars.js) - A template engine for handling our views
+
+## Application Structure
+
+
+- `bin/www` - This folder contains the javascript file for running the application locally.
+- `models/` - This folder contains the schema definitions for our Mongoose models.
+- `public/` - This folder contains static files.
+- `routes/` - This folder contains the route definitions for our API.
+- `views/` - This folder contains handlebars views for our application.
+- `app.js` - The entry point to our application. This file defines our express server and connects it to MongoDB using mongoose. It also requires the routes and models we'll be using in the application.
+
