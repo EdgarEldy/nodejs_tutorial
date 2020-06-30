@@ -63,6 +63,7 @@ app.get('/customers/add', customersRouter);
 app.post('/customers', customersRouter);
 app.get('/customers/edit/:id', customersRouter);
 app.post('/customers/edit/:id', customersRouter);
+app.post('/customers/delete/:id', customersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
