@@ -29,6 +29,9 @@ var categoriesRouter = require('./routes/categories');
 // Customers
 var customersRouter = require('./routes/customers');
 
+// Products
+var productsRouter = require('./routes/products');
+
 var app = express();
 app.use(bodyParser.urlencoded({
     extended: true
@@ -64,6 +67,9 @@ app.post('/customers', customersRouter);
 app.get('/customers/edit/:id', customersRouter);
 app.post('/customers/edit/:id', customersRouter);
 app.post('/customers/delete/:id', customersRouter);
+
+// Products
+app.get('/products', productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
