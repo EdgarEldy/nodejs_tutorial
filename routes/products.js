@@ -17,7 +17,7 @@ router.get('/products', function (req, res) {
     });
 });
 
-// Getting the products/add view
+// Get the products/add form
 router.get('/products/add', function (req, res) {
    Category.find({}, function (err, docs) {
      if (!err){
@@ -28,6 +28,22 @@ router.get('/products/add', function (req, res) {
          res.json(err);
      }
    });
+});
+
+// Inserting a new product
+router.post('/products', function (req, res) {
+   var product = new Product();
+    product.category_id = req.body.category_id;
+    product.product_name = req.body.product_name;
+    product.unit_price = req.body.unit_price;
+
+    product.save(function (err) {
+       if (!err){
+           res.redirect('products');
+       }  else{
+           console.log('Error during record insertion:' + err);
+       }
+    });
 });
 
 module.exports = router;
