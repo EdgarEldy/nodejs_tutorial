@@ -17,5 +17,18 @@ router.get('/products', function (req, res) {
     });
 });
 
+// Getting the products/add view
+router.get('/products/add', function (req, res) {
+   Category.find({}, function (err, docs) {
+     if (!err){
+         res.render('products/add',{
+            categories: docs.map(category => category.toJSON())
+         });
+     }   else{
+         res.json(err);
+     }
+   });
+});
+
 module.exports = router;
 
