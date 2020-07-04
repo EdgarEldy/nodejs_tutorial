@@ -6,15 +6,17 @@ var Product = require('../models/Product');
 
 // Retrieve products
 router.get('/products', function (req, res) {
-    Product.find({}, function (err, docs) {
-        if (!err) {
-            res.render('products/index', {
-                products: docs.map(product => product.toJSON())
-            });
-        } else {
-            res.json(err);
-        }
-    });
+    Product.find({})
+        .populate('category_id')
+        .exec(function (err, docs) {
+           if (!err){
+               res.render('products/index',{
+                   products: docs.map(product => product.toJSON())
+               });
+           } else {
+               res.json(err);
+           }
+        });
 });
 
 // Get the products/add form
