@@ -17,6 +17,7 @@
     "mongoose": "^5.9.16",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.4",
-    "optimist": "^0.6.1"
+    "optimist": "^0.6.1",
+    "passport": "^0.4.1"
   }
 }
