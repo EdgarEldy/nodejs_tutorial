@@ -1,14 +1,17 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var categorySchema = new mongoose.Schema({
+var categorySchema = new Schema({
     'cat_name': {
         type: String,
         required: true
     },
     products: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Product'
     }]
 });
 
-module.exports = mongoose.model('Category', categorySchema, 'categories');
+var Category = mongoose.model(categorySchema, 'categories');
+
+module.exports = Category;
