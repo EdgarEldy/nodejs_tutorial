@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
-
-var categorySchema = new mongoose.Schema({
+var Schema = mongoose.Schema;
+var categorySchema = new Schema({
     'cat_name': {
         type: String,
         required: true
     },
     products: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Product'
     }]
 });
