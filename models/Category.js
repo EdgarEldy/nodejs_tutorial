@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
 var categorySchema = new Schema({
     'cat_name': {
         type: String,
@@ -11,4 +12,6 @@ var categorySchema = new Schema({
     }]
 });
 
-module.exports = mongoose.model('Category', categorySchema, 'categories');
+var Category = mongoose.model(categorySchema, 'categories');
+
+module.exports = Category;
