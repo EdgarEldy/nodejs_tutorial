@@ -10,10 +10,6 @@ var userSchema = new Schema({
     type: String,
     required: true,
   },
-  username: {
-    type: String,
-    required: true,
-  },
   password: {
     type: String,
     required: true,
@@ -21,9 +17,9 @@ var userSchema = new Schema({
   registered_at: {
     type: Date,
     default: Date.now,
-  }
+  },
 });
 
-var User = mongoose.model(userSchema, 'users');
+var User = mongoose.model(userSchema, "users");
 
 module.exports = User;
