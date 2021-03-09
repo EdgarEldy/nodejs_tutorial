@@ -73,6 +73,9 @@ app.get('/products', productsRouter);
 app.get('/products/add', productsRouter);
 app.post('/products', productsRouter);
 
+// Users
+app.get('/users', usersRouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
