@@ -72,6 +72,7 @@ app.post('/customers/delete/:id', customersRouter);
 app.get('/products', productsRouter);
 app.get('/products/add', productsRouter);
 app.post('/products', productsRouter);
+app.get('/products/edit/:id', productsRouter);
 
 // Users
 app.get('/users', usersRouter);
