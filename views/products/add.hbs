@@ -8,22 +8,20 @@
                         <select name="category_id" id="" class="form-control">
                             <option value="">Select a category...</option>
                             {{#each categories}}
-                                <option value="{{this._id}}">{{this.cat_name}}</option>
+                            <option value="{{this._id}}">{{this.category_name}}</option>
                             {{/each}}
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Product name :</label>
-                        <input type="text" name="product_name" class="form-control"
-                               placeholder="" value="">
+                        <input type="text" name="product_name" class="form-control" placeholder="" value="">
                     </div>
                     <div class="form-group">
                         <label>Unit price :</label>
-                        <input type="text" name="unit_price" class="form-control"
-                               placeholder="" value="">
-
-                        <button type="submit" id="submit" class="btn btn-primary">Save</button>
-                        <button type="reset" class="btn btn-default">Reset</button>
+                        <input type="text" name="unit_price" class="form-control" placeholder="" value="">
+                    </div>
+                    <button type="submit" id="submit" class="btn btn-primary">Save</button>
+                    <button type="reset" class="btn btn-default">Reset</button>
                 </form>
             </div>
         </div>
