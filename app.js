@@ -26,9 +26,6 @@ var usersRouter = require('./routes/users');
 // Categories
 var categoriesRouter = require('./routes/categories');
 
-// Customers
-var customersRouter = require('./routes/customers');
-
 // Products
 var productsRouter = require('./routes/products');
 
