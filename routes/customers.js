@@ -41,4 +41,18 @@ router.post('/customers', function (req, res, next) {
     });
 });
 
+//Get customers/edit/:id 
+router.get('/customers/edit/:id', function (req, res, next) {
+    var id = req.params.id;
+    Customer.findById(id, function (err, doc) {
+        if (!err) {
+            res.render('customers/edit', {
+                customer: doc.toJSON()
+            });
+        } else {
+            console.log(err);
+        }
+    });
+});
+
 module.exports = router;
