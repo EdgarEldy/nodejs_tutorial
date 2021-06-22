@@ -69,5 +69,26 @@ router.get('/products/edit/:id', async function (req, res, next) {
 
 });
 
+//Update a product
+router.post('/products/edit/:id', function (req, res, next) {
+    var product = {};
+    product.category_id = req.body.category_id;
+    product.product_name = req.body.product_name;
+    product.unit_price = req.body.unit_price;
+
+    var query = {
+        _id: req.params.id
+    }
+
+    Product.updateOne(query, product, function (err) {
+        if (!err) {
+            res.redirect('/products');
+        }
+        else {
+            console.log('Error durring record update:' + err);
+        }
+    });
+});
+
 module.exports = router;
 
