@@ -60,14 +60,6 @@ app.get('/categories/edit/:id', categoriesRouter);
 app.post('/categories/edit/:id', categoriesRouter);
 app.post('/categories/delete/:id', categoriesRouter);
 
-// Customers
-app.get('/customers', customersRouter);
-app.get('/customers/add', customersRouter);
-app.post('/customers', customersRouter);
-app.get('/customers/edit/:id', customersRouter);
-app.post('/customers/edit/:id', customersRouter);
-app.post('/customers/delete/:id', customersRouter);
-
 // Products
 app.get('/products', productsRouter);
 app.get('/products/add', productsRouter);
