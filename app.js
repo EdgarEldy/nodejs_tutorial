@@ -74,6 +74,7 @@ app.get('/products/add', productsRouter);
 app.post('/products', productsRouter);
 app.get('/products/edit/:id', productsRouter);
 app.post('/products/edit/:id', productsRouter);
+app.post('/products/delete/:id', productsRouter);
 
 // Users
 app.get('/users', usersRouter);
