@@ -30,10 +30,6 @@ var categoriesRouter = require('./routes/categories');
 var productsRouter = require('./routes/products');
 
 var app = express();
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json());
 
 // view engine setup
 app.engine('hbs', exphbs({extname: 'hbs', defaultLayout: 'main', partialsDir: ['views/partials']}));
