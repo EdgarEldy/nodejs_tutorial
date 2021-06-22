@@ -90,5 +90,23 @@ router.post('/products/edit/:id', function (req, res, next) {
     });
 });
 
+//Delete a product
+router.post('/products/delete/:id', function (req, res, next) {
+
+    //Get product id
+    var query = {
+        _id: req.params.id
+    };
+
+    Product.remove(query, function (err) {
+        if (!err) {
+            res.redirect('/products');
+        }
+        else {
+            console.log('Error during record delete:' + err);
+        }
+    });
+});
+
 module.exports = router;
 
