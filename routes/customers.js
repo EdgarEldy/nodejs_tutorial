@@ -4,4 +4,18 @@ var router = express.Router();
 //Initialize Customer schema
 var Customer = require('../models/Customer');
 
+//Get customers
+router.get('/customers', function (req, res, next) {
+    Customer.find({}, function (err, docs) {
+        if (!err) {
+            res.render('customers/index', {
+                customers: docs.map((customer) => customer.toJSON())
+            });
+        }
+        else {
+            res.json(err);
+        }
+    });
+});
+
 module.exports = router;
