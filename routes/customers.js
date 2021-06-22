@@ -23,4 +23,22 @@ router.get('/customers/add', function (req, res, next) {
     res.render('customers/add');
 });
 
+//save a new customer
+router.post('/customers', function (req, res, next) {
+    var customer = new Customer();
+    customer.first_name = req.body.first_name;
+    customer.last_name = req.body.last_name;
+    customer.tel = req.body.tel;
+    customer.email = req.body.email;
+    customer.address = req.body.address;
+
+    customer.save(function (err) {
+        if (!err) {
+            res.redirect('customers');
+        } else {
+            console.log('Error while record insertion:' + err);
+        }
+    });
+});
+
 module.exports = router;
