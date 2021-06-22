@@ -21,7 +21,7 @@ router.get('/categories/add', function (req, res) {
 // Adding a new product category
 router.post('/categories', function (req, res) {
     var category = new Category();
-    category.cat_name = req.body.cat_name;
+    category.category_name = req.body.category_name;
 
     category.save(function (err, doc) {
         if (!err) {
@@ -48,7 +48,7 @@ router.get('/categories/edit/:id', function (req, res) {
 // Update a document by id
 router.post('/categories/edit/:id', function (req, res) {
     var category = {};
-    category.cat_name = req.body.cat_name;
+    category.category_name = req.body.category_name;
     var query = {
         _id: req.params.id
     };
