@@ -29,6 +29,9 @@ var categoriesRouter = require('./routes/categories');
 // Products
 var productsRouter = require('./routes/products');
 
+//Customers
+var customersRouter = require('./routes/customers');
+
 var app = express();
 
 // view engine setup
@@ -60,6 +63,14 @@ app.post('/products', productsRouter);
 app.get('/products/edit/:id', productsRouter);
 app.post('/products/edit/:id', productsRouter);
 app.post('/products/delete/:id', productsRouter);
+
+// Customers
+app.get('/customers', customersRouter);
+app.get('/customers/add', customersRouter);
+app.post('/customers', customersRouter);
+app.get('/customers/edit/:id', customersRouter);
+app.post('/customers/edit/:id', customersRouter);
+app.post('/customers/delete/:id', customersRouter);
 
 // Users
 app.get('/users', usersRouter);
